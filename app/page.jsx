@@ -1,0 +1,49 @@
+import { FaArrowRight } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
+
+export default function Home() {
+  return (
+    <>
+      <div className="relative min-h-[calc(100svh-72px)] flex flex-col items-center justify-center px-6 background-stars select-none">
+        {/* Hero Content */}
+        <div
+          className="
+        text-gray-200 flex flex-col items-center text-center gap-8
+        max-w-5xl w-full animate-fade-in
+      "
+        >
+          <span className="text-2xl md:text-3xl text-gray-400 tracking-wider">
+            Hello, I’m
+          </span>
+
+          <h1 className="text-6xl md:text-8xl font-extrabold drop-shadow-2xl">
+            Luis M.
+          </h1>
+
+          <span className="text-3xl md:text-5xl font-light text-gray-300">
+            Front-End Developer
+          </span>
+
+          <p className="text-gray-400 text-xl md:text-2xl leading-relaxed max-w-3xl mt-2">
+            Crafting beautiful, responsive, and user-friendly digital
+            experiences with modern web technologies.
+          </p>
+
+          <Button
+            size="lg"
+            className="
+            mt-6 px-10 py-7 text-xl font-semibold group transition-all
+            shadow-xl shadow-black/50 hover:scale-[1.03] cursor-pointer
+          "
+          >
+            <span className="group-hover:translate-x-1 transition-transform">
+              View My Work
+            </span>
+            <FaArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </div>
+      </div>
+      <div className="background-animation h-[1000px] text-white"></div>
+    </>
+  );
+}
