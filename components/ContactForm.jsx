@@ -32,7 +32,7 @@ export default function Contact() {
         </div>
         <form
           onSubmit={handleSubmit}
-          className="bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-2xl mx-auto"
+          className="bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-3xl mx-auto"
         >
           <div className="space-y-6">
             {/* NAME */}
@@ -104,7 +104,7 @@ export default function Contact() {
               />
             </div>
 
-            <Button className="md:w-full block ml-auto bg-primary-600 hover:bg-primary-700 text-gray-300">
+            <Button className="block py-2 ml-auto bg-gray-400 text-black hover:bg-gray-800 transition-colors">
               Send Message
             </Button>
           </div>
