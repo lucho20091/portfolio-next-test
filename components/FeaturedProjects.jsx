@@ -40,15 +40,17 @@ export default function FeaturedProjects() {
           {/* VIDEO */}
           <Card className="overflow-hidden shadow-xl bg-black/20 backdrop-blur-xl border border-white/10">
             <CardContent className="relative p-0 h-[380px] md:h-[500px] group">
-              <video
-                src="https://res.cloudinary.com/dlabbnwux/video/upload/v1763245013/2025-11-15_13-48-00_1_esa5w7.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-300" />
+              <a href="https://smedia-lucho.vercel.app/" target="_blank">
+                <video
+                  src="https://res.cloudinary.com/dlabbnwux/video/upload/v1763245013/2025-11-15_13-48-00_1_esa5w7.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-300" />
+              </a>
             </CardContent>
           </Card>
 
@@ -132,15 +134,17 @@ export default function FeaturedProjects() {
           {/* VIDEO */}
           <Card className="order-1 lg:order-2 overflow-hidden shadow-xl bg-black/20 backdrop-blur-xl border border-white/10">
             <CardContent className="relative p-0 h-[380px] md:h-[500px] group">
-              <video
-                src="https://res.cloudinary.com/dlabbnwux/video/upload/v1763236419/2025-11-15_13-48-00_2_nzz8mi.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-300" />
+              <a href="https://ecommerce-techstore.vercel.app/" target="_blank">
+                <video
+                  src="https://res.cloudinary.com/dlabbnwux/video/upload/v1763236419/2025-11-15_13-48-00_2_nzz8mi.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-300" />{" "}
+              </a>
             </CardContent>
           </Card>
         </div>
