@@ -49,8 +49,8 @@ export default function OtherProjects() {
             Other <span className="text-blue-500">Projects</span>
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Explore all my additional builds—sorted by technologies and built
-            with clean, organized structure.
+            Explore my additional builds sorted by technologies and built with
+            clean, organized structure.
           </p>
         </div>
 
