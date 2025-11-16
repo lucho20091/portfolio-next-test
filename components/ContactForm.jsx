@@ -4,7 +4,6 @@ import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "react-toastify";
 import { Button } from "./ui/button";
 import { sendMessageToTelegram } from "@/lib/actions/telegram";
-
 export default function Contact() {
   const [state, handleSubmit] = useForm("xnnvzlyz");
 
@@ -18,6 +17,19 @@ export default function Contact() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const getIp = async () => {
+    try {
+      const ip = await fetch("/api/get-ip").then((r) => r.text());
+      sendMessageToTelegram({ site: "lucho.uk", ip });
+    } catch (e) {
+      sendMessageToTelegram({ site: "lucho.uk", message: "failed to get ip" });
+    }
+  };
+
+  useEffect(() => {
+    getIp();
+  }, []);
 
   useEffect(() => {
     if (state.succeeded) {
