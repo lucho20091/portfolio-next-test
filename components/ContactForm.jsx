@@ -1,15 +1,29 @@
 "use client";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "react-toastify";
 import { Button } from "./ui/button";
+import { sendMessageToTelegram } from "@/lib/actions/telegram";
 
 export default function Contact() {
   const [state, handleSubmit] = useForm("xnnvzlyz");
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   useEffect(() => {
     if (state.succeeded) {
       toast("Message sent successfully");
+      sendMessageToTelegram(formData);
+      setFormData({ name: "", email: "", message: "" });
     }
   }, [state.succeeded]);
 
@@ -24,13 +38,14 @@ export default function Contact() {
           <h2 className="text-5xl font-extrabold tracking-tight">
             Get in <span className="text-blue-500">Touch</span>
           </h2>
-
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
             Have a question or want to discuss a project? I'd love to hear from
             you.
           </p>
         </div>
+
         <form
+          id="contact-form"
           onSubmit={handleSubmit}
           className="bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-3xl mx-auto"
         >
@@ -48,6 +63,8 @@ export default function Contact() {
                 id="name"
                 name="name"
                 required
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-gray-700 bg-gray-800 text-gray-300 placeholder-gray-500 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                 placeholder="Your name"
               />
@@ -71,6 +88,8 @@ export default function Contact() {
                 id="email"
                 name="email"
                 required
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-gray-700 bg-gray-800 text-gray-300 placeholder-gray-500 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                 placeholder="your@email.com"
               />
@@ -94,9 +113,18 @@ export default function Contact() {
                 name="message"
                 required
                 rows="4"
+                value={formData.message}
+                onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault(); // Prevent newline
+                    document.getElementById("contact-form").requestSubmit(); // Submit the form
+                  }
+                }}
                 className="w-full px-4 py-3 rounded-lg border border-gray-700 bg-gray-800 text-gray-300 placeholder-gray-500 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                 placeholder="Your message"
               />
+
               <ValidationError
                 prefix="Message"
                 field="message"
@@ -104,7 +132,10 @@ export default function Contact() {
               />
             </div>
 
-            <Button className="block py-2 ml-auto bg-gray-400 text-black hover:bg-gray-800 transition-colors">
+            <Button
+              variant="secondary"
+              className="block  ml-auto cursor-pointer"
+            >
               Send Message
             </Button>
           </div>
