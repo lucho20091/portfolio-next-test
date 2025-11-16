@@ -39,7 +39,7 @@ export default function OtherProjects() {
 
   return (
     <section className="background-animation w-full py-28 md:py-28 text-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-3xl mx-auto px-4">
         {/* TITLE */}
         <div data-aos="fade-up" className="text-center space-y-4 mb-32">
           <h1 className="text-5xl font-extrabold tracking-tight">
