@@ -66,7 +66,7 @@ export default function OtherProjects() {
     justify-start
     rounded-none
     gap-2
-    bg-gray-300
+    bg-gray-900
     p-2
     h-auto
   "
@@ -79,12 +79,13 @@ export default function OtherProjects() {
         px-2
         py-1
         font-medium
-        bg-gray-100
-        text-gray-800
-            rounded-none
+        bg-gray-800
+        text-gray-300
+        rounded-none
         transition-all
-        hover:bg-gray-200
+        hover:bg-gray-700
         cursor-pointer
+        data-[state=active]:bg-gray-700
       "
               >
                 {tech}
@@ -97,18 +98,18 @@ export default function OtherProjects() {
             <TabsContent
               key={tech}
               value={tech}
-              className="mt-8 bg-gray-200 text-black p-4 rounded-xl shadow-lg border border-gray-300     rounded-none"
+              className="mt-8 bg-gray-900 text-gray-300 p-4 rounded-xl shadow-lg border border-gray-700"
             >
               <Table className="w-full">
                 <TableHeader>
-                  <TableRow className="grid grid-cols-5 sm:grid-cols-6 gap-4 bg-gray-300 px-3 font-semibold text-gray-800 border border-gray-400">
-                    <TableHead className="col-span-3 sm:col-span-4 flex items-center justify-start">
+                  <TableRow className="grid grid-cols-5 sm:grid-cols-6 gap-4 bg-gray-800 px-3 font-semibold text-gray-300 border border-gray-700 select-none hover:bg-gray-700">
+                    <TableHead className="col-span-3 sm:col-span-4 flex items-center justify-start text-gray-300">
                       Project Name
                     </TableHead>
-                    <TableHead className="col-span-1 flex items-center justify-center">
+                    <TableHead className="col-span-1 flex items-center justify-center text-gray-300">
                       GitHub
                     </TableHead>
-                    <TableHead className="col-span-1 flex items-center justify-center">
+                    <TableHead className="col-span-1 flex items-center justify-center text-gray-300">
                       Website
                     </TableHead>
                   </TableRow>
@@ -120,19 +121,16 @@ export default function OtherProjects() {
                     .map((projectMap) => (
                       <TableRow
                         key={projectMap.id}
-                        className="grid grid-cols-5 sm:grid-cols-6 gap-4 bg-gray-200 border-y border-black px-3 font-semibold text-gray-800"
+                        className="grid grid-cols-5 sm:grid-cols-6 gap-4 bg-gray-800 border-y border-gray-700 px-3 font-medium text-gray-300 hover:bg-gray-700 transition"
                       >
-                        {/* Project Name + Modal */}
-                        <TableCell className="col-span-3 sm:col-span-4 font-medium">
-                          {/* Mobile: show truncated */}
+                        {/* Project Name */}
+                        <TableCell className="col-span-3 sm:col-span-4">
                           <span className="sm:hidden">
                             {projectMap.projectName.trim().slice(0, 15)}
                             {projectMap.projectName.trim().length > 15
                               ? "..."
                               : ""}
                           </span>
-
-                          {/* Desktop: show full */}
                           <span className="hidden sm:inline">
                             {projectMap.projectName.trim()}
                           </span>
@@ -142,7 +140,7 @@ export default function OtherProjects() {
                         <TableCell className="col-span-1 text-center">
                           <a href={projectMap.github} target="_blank">
                             <Github
-                              className="mx-auto hover:text-blue-600 transition"
+                              className="mx-auto hover:text-blue-400 transition"
                               size={22}
                             />
                           </a>
@@ -153,7 +151,7 @@ export default function OtherProjects() {
                           {projectMap.website && (
                             <a href={projectMap.website} target="_blank">
                               <CodeXml
-                                className="mx-auto hover:text-green-600 transition"
+                                className="mx-auto hover:text-green-400 transition"
                                 size={22}
                               />
                             </a>

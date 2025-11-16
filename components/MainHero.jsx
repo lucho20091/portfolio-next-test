@@ -2,7 +2,10 @@ import { FaArrowRight } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 export default function MainHero() {
   return (
-    <div className="relative min-h-[calc(100svh-72px)] flex flex-col items-center justify-center px-6 background-stars select-none">
+    <div
+      id="start"
+      className="relative min-h-[calc(100svh-72px)] flex flex-col items-center justify-center px-6 background-stars select-none"
+    >
       {/* Hero Content */}
       <div
         className="

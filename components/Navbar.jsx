@@ -5,6 +5,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 navbar-animation backdrop-blur-md shadow-md p-4">
       <nav className="flex items-center justify-between max-w-6xl mx-auto">
+        {/* Logo */}
         <Link href="/" className="group tracking-tight">
           <Image
             src="/logo2.png"
@@ -14,6 +15,22 @@ export default function Navbar() {
             className="h-10 w-auto"
           />
         </Link>
+
+        {/* Navigation Links */}
+        <div className="flex gap-6 text-gray-300 font-medium">
+          <a href="#start" className="hover:text-primary-500 transition">
+            Start
+          </a>
+          <a
+            href="#featured-projects"
+            className="hover:text-primary-500 transition"
+          >
+            Featured Projects
+          </a>
+          <a href="#contact" className="hover:text-primary-500 transition">
+            Contact
+          </a>
+        </div>
       </nav>
     </header>
   );
