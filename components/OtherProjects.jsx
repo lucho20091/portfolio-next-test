@@ -14,14 +14,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 export default function OtherProjects() {
   const [activeTab, setActiveTab] = useState("Next");
@@ -48,7 +40,7 @@ export default function OtherProjects() {
           <h1 className="text-5xl font-extrabold tracking-tight">
             Other <span className="text-blue-500">Projects</span>
           </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Explore my additional builds sorted by technologies and built with
             clean, organized structure.
           </p>
