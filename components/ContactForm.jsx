@@ -18,19 +18,6 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const getIp = async () => {
-    try {
-      const ip = await fetch("/api/get-ip").then((r) => r.text());
-      sendMessageToTelegram({ site: "lucho.uk", ip });
-    } catch (e) {
-      sendMessageToTelegram({ site: "lucho.uk", message: "failed to get ip" });
-    }
-  };
-
-  useEffect(() => {
-    getIp();
-  }, []);
-
   useEffect(() => {
     if (state.succeeded) {
       toast("Message sent successfully");
