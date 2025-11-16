@@ -4,11 +4,11 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 navbar-animation backdrop-blur-md shadow-md p-4">
-      <nav className="flex items-center justify-between max-w-6xl mx-auto">
+      <nav className="flex items-center justify-between container mx-auto">
         {/* Logo */}
         <Link href="/" className="group tracking-tight">
           <Image
-            src="/logo2.png"
+            src="/logo3.png"
             alt="Logo"
             width={48}
             height={48}
@@ -25,7 +25,7 @@ export default function Navbar() {
             href="#featured-projects"
             className="hover:text-primary-500 transition"
           >
-            Featured Projects
+            Featured
           </a>
           <a href="#contact" className="hover:text-primary-500 transition">
             Contact

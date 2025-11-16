@@ -14,13 +14,13 @@ export default function Contact() {
   }, [state.succeeded]);
 
   return (
-    <section
-      id="contact"
-      className="background-animation w-full py-28 text-gray-50"
-    >
+    <section id="contact" className="w-full py-14 md:py-28 text-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         {/* SECTION TITLE */}
-        <div data-aos="fade-up" className="text-center space-y-4 mb-20">
+        <div
+          data-aos="fade-up"
+          className="text-center space-y-4 mb-14 md:mb-28"
+        >
           <h2 className="text-5xl font-extrabold tracking-tight">
             Get in <span className="text-blue-500">Touch</span>
           </h2>
