@@ -7,9 +7,11 @@ export default function Home() {
     <>
       <MainHero />
       <FeaturedProjects />
-      <div className="grid lg:grid-cols-2 background-animation">
-        <OtherProjects />
-        <Contact />
+      <div className="background-animation">
+        <div className="grid lg:grid-cols-2  max-w-[2000px] mx-auto">
+          <OtherProjects />
+          <Contact />
+        </div>
       </div>
     </>
   );
