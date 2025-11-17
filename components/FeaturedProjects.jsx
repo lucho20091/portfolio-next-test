@@ -20,7 +20,7 @@ export default function FeaturedProjects() {
       id="featured-projects"
       className="background-animation text-gray-300 py-14 md:py-28"
     >
-      <div className="max-w-7xl mx-auto px-4 lg:px-6  flex flex-col gap-12 md:gap-28">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8  flex flex-col gap-12 md:gap-28">
         {/* TITLE */}
         <div data-aos="fade-up" className="text-center space-y-4 lg:mb-6">
           <h1 className="text-5xl font-extrabold tracking-tight">
@@ -35,7 +35,7 @@ export default function FeaturedProjects() {
         {/* PROJECT 1 */}
         <div data-aos="fade-up" className="group relative w-full">
           {/* VIDEO FULL WIDTH WITH CORRECT 16:9 ASPECT */}
-          <Card className="overflow-hidden shadow-xl bg-black/20 backdrop-blur-xl border border-white/10 py-0 w-full">
+          <Card className="overflow-hidden shadow-2xl bg-black/20 backdrop-blur-xl border-none shadow-gray-600/10 py-0 w-full rounded none">
             <CardContent className="relative p-0 aspect-video">
               <a href="https://smedia-lucho.vercel.app/" target="_blank">
                 <video
@@ -103,7 +103,7 @@ export default function FeaturedProjects() {
         {/* project 2 */}
         <div data-aos="fade-up" className="group relative w-full">
           {/* VIDEO FULL WIDTH WITH CORRECT 16:9 ASPECT */}
-          <Card className="overflow-hidden shadow-xl bg-black/20 backdrop-blur-xl border border-white/10 py-0 w-full">
+          <Card className="overflow-hidden shadow-2xl bg-black/20 backdrop-blur-xl border-none shadow-gray-600/10 py-0 w-full rounded none">
             <CardContent className="relative p-0 aspect-video">
               <a href="https://ecommerce-techstore.vercel.app/" target="_blank">
                 <video
