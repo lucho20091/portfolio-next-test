@@ -128,7 +128,7 @@
   animation: backgroundani 8s linear infinite alternate-reverse;
 }
 .background-animation {
-  background: linear-gradient(45deg, #162230 0%, #090a0f 100%);
+  background: linear-gradient(45deg, #173658 0%, #090a0f 100%);
   background-size: 400% 100%;
   box-shadow: 0 -50px 80px rgba(0, 0, 0, 0.1);
   width: 100%;
