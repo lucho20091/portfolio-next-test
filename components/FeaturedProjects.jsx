@@ -105,7 +105,7 @@ export default function FeaturedProjects() {
           {/* VIDEO FULL WIDTH WITH CORRECT 16:9 ASPECT */}
           <Card className="overflow-hidden shadow-xl bg-black/20 backdrop-blur-xl border border-white/10 py-0 w-full">
             <CardContent className="relative p-0 aspect-video">
-              <a href="https://smedia-lucho.vercel.app/" target="_blank">
+              <a href="https://ecommerce-techstore.vercel.app/" target="_blank">
                 <video
                   src="https://res.cloudinary.com/dlabbnwux/video/upload/v1763236419/2025-11-15_13-48-00_2_nzz8mi.mp4"
                   autoPlay
