@@ -4,6 +4,8 @@ export default function MainHero() {
   return (
     <div
       id="start"
+      data-aos="fade-up"
+      data-aos-duration="900"
       className="relative min-h-[calc(100svh-72px)] flex flex-col items-center justify-center px-6 background-stars select-none"
     >
       {/* Hero Content */}
