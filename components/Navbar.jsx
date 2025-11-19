@@ -6,7 +6,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 navbar-animation backdrop-blur-md shadow-md p-4">
       <nav className="flex items-center justify-between container mx-auto">
         {/* Logo */}
-        <Link href="#start" className="group tracking-tight">
+        <Link href="/" className="group tracking-tight">
           <Image
             src="/logo3.png"
             alt="Logo"
