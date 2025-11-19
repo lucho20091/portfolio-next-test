@@ -46,7 +46,7 @@ export default function Contact() {
         <form
           id="contact-form"
           onSubmit={handleSubmit}
-          className="bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-3xl mx-auto"
+          className="bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-3xl mx-auto  border border-gray-700"
         >
           <div className="space-y-6">
             {/* NAME */}

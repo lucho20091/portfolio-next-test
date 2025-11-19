@@ -59,11 +59,11 @@ export default function OtherProjects() {
     flex
     flex-wrap
     justify-start
-    rounded-none
     gap-2
     bg-gray-900
     p-2
     h-auto
+     border border-gray-700
   "
           >
             {uniqueTech.map((tech) => (
