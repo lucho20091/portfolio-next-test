@@ -51,46 +51,16 @@ export default function FeaturedProject({
               transition-all duration-700
             "
           />
-        </CardContent>
-      </Card>
 
-      {/* DESCRIPTION PANEL */}
-      <div
-        className="
-          absolute inset-0 hidden md:grid place-items-center z-30
-          opacity-0 translate-y-3
-          group-hover:opacity-100 group-hover:translate-y-0
-          transition-all duration-500
-          pointer-events-none
-        "
-      >
-        <div
-          className="
-            w-[85%] max-w-xl mx-auto text-center text-white
-            bg-white/5 backdrop-blur-2xl
-            border border-gray-700 px-5 py-6
-            lg:px-10 lg:py-12 rounded-2xl shadow-2xl
-            space-y-4
-            lg:space-y-6
-            transition-all duration-500
-            group-hover:bg-white/15
-            group-hover:border-blue-400
-            group-hover:scale-[0.98]
-          "
-        >
-          <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
-
-          <p className="text-gray-200 leading-relaxed text-lg">{description}</p>
-
-          <h3 className="text-lg font-semibold mt-3">Tech Stack</h3>
-          <ul className="list-disc list-inside text-gray-300 space-y-1 text-left mx-auto w-fit">
-            {tech.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-
-          {/* BUTTONS now inside the description panel */}
-          <div className="flex gap-3 justify-center pointer-events-auto">
+          {/* BUTTONS that slide-in on hover */}
+          <div
+            className="
+              absolute bottom-5 right-5 flex gap-3 z-20
+              opacity-0 translate-y-3
+              group-hover:opacity-100 group-hover:translate-y-0
+              transition-all duration-500
+            "
+          >
             <Button
               asChild
               className="rounded-xl px-5 py-2 text-sm font-medium"
@@ -110,6 +80,42 @@ export default function FeaturedProject({
               </a>
             </Button>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* DESCRIPTION PANEL */}
+      <div
+        className="
+          absolute inset-0 hidden md:flex items-center justify-center z-30
+          opacity-0 translate-y-3
+          group-hover:opacity-100 group-hover:translate-y-0
+          transition-all duration-500
+          pointer-events-none
+        "
+      >
+        <div
+          className="
+            w-[85%] max-w-xl mx-auto text-center text-white
+            bg-white/5 backdrop-blur-2xl
+            border border-gray-700 px-5 py-6
+            lg:px-10 lg:py-12 rounded-2xl shadow-2xl
+            space-y-6 pointer-events-none
+            transition-all duration-500
+            group-hover:bg-white/15
+            group-hover:border-blue-400
+            group-hover:scale-[0.98]
+          "
+        >
+          <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
+
+          <p className="text-gray-200 leading-relaxed text-lg">{description}</p>
+
+          <h3 className="text-lg font-semibold mt-3">Tech Stack</h3>
+          <ul className="list-disc list-inside text-gray-300 space-y-1 text-left mx-auto w-fit">
+            {tech.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
