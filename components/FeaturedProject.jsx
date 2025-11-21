@@ -57,7 +57,7 @@ export default function FeaturedProject({
       {/* DESCRIPTION PANEL */}
       <div
         className="
-          absolute inset-0 hidden md:flex items-center justify-center z-30
+          absolute inset-0 hidden md:flex items-center justify-center justify-center z-30
           opacity-0 translate-y-3
           group-hover:opacity-100 group-hover:translate-y-0
           transition-all duration-500
