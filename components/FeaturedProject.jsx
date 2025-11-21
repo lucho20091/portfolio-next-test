@@ -53,7 +53,7 @@ export default function FeaturedProject({
           {/* BUTTONS that slide-in on hover */}
           <div
             className="
-              absolute bottom-5 right-5 flex gap-3 z-20
+              absolute bottom-5 right-5 flex md:hidden lg:flex gap-3 z-20
               opacity-0 translate-y-3
               group-hover:opacity-100 group-hover:translate-y-0
               transition-all duration-500
