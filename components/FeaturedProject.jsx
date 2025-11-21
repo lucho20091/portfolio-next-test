@@ -83,7 +83,7 @@ export default function FeaturedProject({
       {/* DESCRIPTION PANEL */}
       <div
         className="
-          absolute inset-0 hidden sm:flex items-center justify-center z-30
+          absolute inset-0 hidden md:flex items-center justify-center z-30
           opacity-0 translate-y-3
           group-hover:opacity-100 group-hover:translate-y-0
           transition-all duration-500
@@ -94,8 +94,8 @@ export default function FeaturedProject({
           className="
             w-[85%] max-w-xl mx-auto text-center text-white
             bg-white/10 backdrop-blur-2xl
-            border border-white/20
-            px-10 py-12 rounded-2xl shadow-2xl
+            border border-white/20 px-5 py-6
+            lg:px-10 lg:py-12 rounded-2xl shadow-2xl
             space-y-6 pointer-events-none
           "
         >

@@ -32,7 +32,7 @@ export default function FeaturedProjects() {
 
         {/* PROJECT 1 */}
         <FeaturedProject
-          video="https://res.cloudinary.com/dlabbnwux/video/upload/v1763245013/2025-11-15_13-48-00_1_esa5w7.mp4"
+          video="/project1.webm"
           title="Video Sharing Platform"
           description="A full social media platform for uploading and sharing videos. Includes profiles, comments, likes, and a trending feed."
           tech={[
@@ -48,7 +48,7 @@ export default function FeaturedProjects() {
 
         {/* PROJECT 2 */}
         <FeaturedProject
-          video="https://res.cloudinary.com/dlabbnwux/video/upload/v1763236419/2025-11-15_13-48-00_2_nzz8mi.mp4"
+          video="/project2.webm"
           title="E-Commerce Platform"
           description="A complete ecommerce system with PayPal payments, authentication, product management, and an admin dashboard."
           tech={[
