@@ -10,7 +10,7 @@ export default function FeaturedProject({
   github,
 }) {
   return (
-    <div data-aos="zoom-in-left" className="group relative w-full">
+    <div className="group relative w-full">
       <Card
         className="
           overflow-hidden bg-white/10 backdrop-blur-xl

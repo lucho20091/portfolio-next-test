@@ -35,8 +35,17 @@ export default function OtherProjects() {
         {/* TITLE */}
         <div
           data-aos="fade-up"
-          className="text-center space-y-4 mb-14 md:mb-28"
+          className="text-center space-y-4 mb-14 md:mb-28 hidden xl:block"
         >
+          <h1 className="text-5xl font-extrabold tracking-tight">
+            Other <span className="text-blue-500">Projects</span>
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Explore my additional builds sorted by technologies and built with
+            clean, organized structure.
+          </p>
+        </div>
+        <div className="text-center space-y-4 mb-14 md:mb-28 xl:hidden">
           <h1 className="text-5xl font-extrabold tracking-tight">
             Other <span className="text-blue-500">Projects</span>
           </h1>

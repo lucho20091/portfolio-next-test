@@ -32,8 +32,17 @@ export default function Contact() {
         {/* SECTION TITLE */}
         <div
           data-aos="fade-up"
-          className="text-center space-y-4 mb-14 md:mb-28"
+          className="text-center space-y-4 mb-14 md:mb-28 hidden xl:block"
         >
+          <h2 className="text-5xl font-extrabold tracking-tight">
+            Get in <span className="text-blue-500">Touch</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Have a question or want to discuss a project? I'd love to hear from
+            you.
+          </p>
+        </div>
+        <div className="text-center space-y-4 mb-14 md:mb-28  xl:hidden">
           <h2 className="text-5xl font-extrabold tracking-tight">
             Get in <span className="text-blue-500">Touch</span>
           </h2>

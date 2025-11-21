@@ -77,6 +77,30 @@ html
     background: transparent
     box-shadow: $shadows-big
 
+@media (max-width: 768px)
+  $shadows-small-mobile: multiple-box-shadow(25)
+  $shadows-medium-mobile: multiple-box-shadow(8)
+  $shadows-big-mobile: multiple-box-shadow(4)
+
+  #stars
+    box-shadow: $shadows-small-mobile
+
+    &:after
+      box-shadow: $shadows-small-mobile
+
+  #stars2
+    box-shadow: $shadows-medium-mobile
+
+    &:after
+      box-shadow: $shadows-medium-mobile
+
+  #stars3
+    box-shadow: $shadows-big-mobile
+
+    &:after
+      box-shadow: $shadows-big-mobile
+
+
 @keyframes animStar
   from
     transform: translateY(0px)

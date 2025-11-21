@@ -9,7 +9,7 @@ export default function FeaturedProjects() {
       once: true,
       easing: "ease-out-cubic",
       mirror: true,
-      disable: () => window.innerWidth < 1300,
+      disable: () => window.innerWidth < 1280,
     });
   }, []);
 
@@ -20,7 +20,19 @@ export default function FeaturedProjects() {
     >
       <div className="max-w-7xl mx-auto px-4 lg:px-8  flex flex-col gap-12 md:gap-28">
         {/* TITLE */}
-        <div data-aos="fade-up" className="text-center space-y-4 lg:mb-6">
+        <div
+          data-aos="fade-up"
+          className="text-center space-y-4 lg:mb-6 hidden xl:block"
+        >
+          <h1 className="text-5xl font-extrabold tracking-tight">
+            Featured <span className="text-blue-500">Projects</span>
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            A selection of my best, full–stack projects showcasing real-world
+            platforms, clean UI, and high-performance development.
+          </p>
+        </div>
+        <div className="text-center space-y-4 lg:mb-6 xl:hidden">
           <h1 className="text-5xl font-extrabold tracking-tight">
             Featured <span className="text-blue-500">Projects</span>
           </h1>
