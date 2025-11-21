@@ -57,13 +57,11 @@ export default function FeaturedProject({
       {/* DESCRIPTION PANEL */}
       <div
         className="
-          absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          hidden md:flex items-center justify-center z-30
+          absolute inset-0 hidden md:flex items-center justify-center z-30
           opacity-0 translate-y-3
           group-hover:opacity-100 group-hover:translate-y-0
           transition-all duration-500
           pointer-events-none
-          max-h-[80%]
         "
       >
         <div
@@ -77,8 +75,6 @@ export default function FeaturedProject({
             group-hover:bg-white/15
             group-hover:border-blue-400
             group-hover:scale-[0.98]
-            pointer-events-auto
-            overflow-y-auto
           "
         >
           <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
@@ -93,7 +89,7 @@ export default function FeaturedProject({
           </ul>
 
           {/* BUTTONS now inside the description panel */}
-          <div className="flex gap-3 justify-center mt-6">
+          <div className="flex gap-3 justify-center mt-6 pointer-events-auto">
             <Button
               asChild
               className="rounded-xl px-5 py-2 text-sm font-medium"
