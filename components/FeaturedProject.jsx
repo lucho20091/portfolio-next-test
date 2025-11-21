@@ -90,7 +90,7 @@ export default function FeaturedProject({
           </ul>
 
           {/* BUTTONS now inside the description panel */}
-          <div className="flex gap-3 justify-center mt-6 pointer-events-auto">
+          <div className="flex gap-3 justify-center pointer-events-auto">
             <Button
               asChild
               className="rounded-xl px-5 py-2 text-sm font-medium"
