@@ -1,5 +1,3 @@
-// Improved OtherProjects component with title, enhanced styling for tabs and table
-
 "use client";
 
 import { useState, useRef } from "react";
@@ -20,14 +18,6 @@ export default function OtherProjects() {
   const tabsListRef = useRef(null);
 
   const uniqueTech = [...new Set(data.flatMap((item) => item.technologies))];
-
-  const moveTabLeft = () => {
-    if (tabsListRef.current) tabsListRef.current.scrollLeft -= 140;
-  };
-
-  const moveTabRight = () => {
-    if (tabsListRef.current) tabsListRef.current.scrollLeft += 140;
-  };
 
   return (
     <section className=" w-full py-14 md:py-28  text-gray-50">
