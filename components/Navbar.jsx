@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react"; // Import useEffect and useRef
 import { MenuIcon, XIcon } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null); // Ref for the mobile menu container
+  const buttonRef = useRef(null); // Ref for the mobile menu toggle button
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -15,6 +17,30 @@ export default function Navbar() {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
+  // Effect to handle clicks outside the menu
+  useEffect(() => {
+    function handleClickOutside(event) {
+      // If the menu is open and the click is not on the menu itself
+      // and not on the button that toggles the menu, then close the menu.
+      if (
+        isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
+    // Add event listener when the component mounts
+    document.addEventListener("mousedown", handleClickOutside);
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]); // Re-run effect if isOpen changes
 
   return (
     <header className="sticky top-0 z-50 navbar-animation backdrop-blur-md shadow-md p-4">
@@ -32,6 +58,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
+          ref={buttonRef} // Attach ref to the button
           className="md:hidden text-gray-300 focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
@@ -58,7 +85,10 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-40 flex flex-col items-center justify-center space-y-8 text-gray-50 animate-fade-in">
+        <div
+          ref={menuRef} // Attach ref to the mobile menu overlay
+          className="md:hidden fixed inset-0 navbar-animation backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-8 text-gray-50 animate-fade-in"
+        >
           <a
             href="#start"
             className="text-3xl font-semibold hover:text-blue-500 transition"
