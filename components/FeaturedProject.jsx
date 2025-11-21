@@ -66,11 +66,12 @@ export default function FeaturedProject({
       >
         <div
           className="
-            w-[85%] max-w-2xl mx-auto text-center text-white
+            w-[85%] max-w-xl mx-auto text-center text-white
             bg-white/5 backdrop-blur-2xl
             border border-gray-700 px-5 py-6
             lg:px-10 lg:py-12 rounded-2xl shadow-2xl
-            space-y-6
+            space-y-4
+            lg:space-y-6
             transition-all duration-500
             group-hover:bg-white/15
             group-hover:border-blue-400
