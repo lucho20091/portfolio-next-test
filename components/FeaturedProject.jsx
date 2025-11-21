@@ -66,7 +66,7 @@ export default function FeaturedProject({
       >
         <div
           className="
-            w-[85%] max-w-xl mx-auto text-center text-white
+            w-[85%] max-w-2xl mx-auto text-center text-white
             bg-white/5 backdrop-blur-2xl
             border border-gray-700 px-5 py-6
             lg:px-10 lg:py-12 rounded-2xl shadow-2xl
