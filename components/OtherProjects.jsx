@@ -35,7 +35,7 @@ export default function OtherProjects() {
             clean, organized structure.
           </p>
         </div>
-        <div className="text-center space-y-4 mb-14 md:mb-28 xl:hidden">
+        <div className="text-center space-y-4 mb-6 md:mb-28 xl:hidden">
           <h1 className="text-5xl font-extrabold tracking-tight">
             Other <span className="text-blue-500">Projects</span>
           </h1>
@@ -92,7 +92,7 @@ export default function OtherProjects() {
             <TabsContent
               key={tech}
               value={tech}
-              className="mt-8 bg-gray-900 text-gray-300 p-4 rounded-xl shadow-lg border border-gray-700"
+              className="mt-6 md:mt-8 bg-gray-900 text-gray-300 p-4 rounded-xl shadow-lg border border-gray-700"
             >
               <Table className="w-full">
                 <TableHeader>
@@ -104,7 +104,8 @@ export default function OtherProjects() {
                       GitHub
                     </TableHead>
                     <TableHead className="col-span-1 flex items-center justify-center text-gray-300">
-                      Website
+                      <span className="hidden sm:inline">Website</span>
+                      <span className="sm:hidden">Site</span>
                     </TableHead>
                   </TableRow>
                 </TableHeader>

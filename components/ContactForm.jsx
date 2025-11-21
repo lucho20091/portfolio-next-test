@@ -27,7 +27,8 @@ export default function Contact() {
   }, [state.succeeded]);
 
   return (
-    <section id="contact" className="w-full py-14 md:py-28 text-gray-50">
+    <section className="relative w-full pb-14 md:py-28 text-gray-50">
+      <div id="contact" className="absolute top-[-36px]"></div>
       <div className="max-w-7xl mx-auto px-4">
         {/* SECTION TITLE */}
         <div
@@ -42,7 +43,7 @@ export default function Contact() {
             you.
           </p>
         </div>
-        <div className="text-center space-y-4 mb-14 md:mb-28  xl:hidden">
+        <div className="text-center space-y-4 mb-6 md:mb-28  xl:hidden">
           <h2 className="text-5xl font-extrabold tracking-tight">
             Get in <span className="text-blue-500">Touch</span>
           </h2>

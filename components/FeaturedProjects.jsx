@@ -14,11 +14,9 @@ export default function FeaturedProjects() {
   }, []);
 
   return (
-    <section
-      id="featured-projects"
-      className="background-animation text-gray-300 py-14 md:py-28"
-    >
-      <div className="max-w-7xl mx-auto px-4 lg:px-8  flex flex-col gap-12 md:gap-28">
+    <section className="relative background-animation text-gray-300 py-14 md:py-28">
+      <div id="featured-projects" className="absolute top-[-36px]"></div>
+      <div className="max-w-7xl mx-auto px-4 lg:px-8  flex flex-col gap-6 md:gap-28">
         {/* TITLE */}
         <div
           data-aos="fade-up"
