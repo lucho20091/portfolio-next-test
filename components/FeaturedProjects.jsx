@@ -32,7 +32,7 @@ export default function FeaturedProjects() {
 
         {/* PROJECT 1 */}
         <FeaturedProject
-          video="/project1.webm"
+          video="/video-small.webm"
           title="Video Sharing Platform"
           description="A full social media platform for uploading and sharing videos. Includes profiles, comments, likes, and a trending feed."
           tech={[
@@ -48,7 +48,7 @@ export default function FeaturedProjects() {
 
         {/* PROJECT 2 */}
         <FeaturedProject
-          video="/project2.webm"
+          video="/video-small2.webm"
           title="E-Commerce Platform"
           description="A complete ecommerce system with PayPal payments, authentication, product management, and an admin dashboard."
           tech={[
