@@ -51,35 +51,6 @@ export default function FeaturedProject({
               transition-all duration-700
             "
           />
-
-          {/* BUTTONS that slide-in on hover */}
-          <div
-            className="
-              absolute bottom-5 right-5 flex gap-3 z-20
-              opacity-0 translate-y-3
-              group-hover:opacity-100 group-hover:translate-y-0
-              transition-all duration-500
-            "
-          >
-            <Button
-              asChild
-              className="rounded-xl px-5 py-2 text-sm font-medium"
-            >
-              <a href={site} target="_blank">
-                Visit Site
-              </a>
-            </Button>
-
-            <Button
-              variant="secondary"
-              asChild
-              className="rounded-xl px-5 py-2 text-sm font-medium"
-            >
-              <a href={github} target="_blank">
-                GitHub
-              </a>
-            </Button>
-          </div>
         </CardContent>
       </Card>
 
@@ -99,7 +70,7 @@ export default function FeaturedProject({
             bg-white/5 backdrop-blur-2xl
             border border-gray-700 px-5 py-6
             lg:px-10 lg:py-12 rounded-2xl shadow-2xl
-            space-y-6 pointer-events-none
+            space-y-6
             transition-all duration-500
             group-hover:bg-white/15
             group-hover:border-blue-400
@@ -116,6 +87,28 @@ export default function FeaturedProject({
               <li key={t}>{t}</li>
             ))}
           </ul>
+
+          {/* BUTTONS now inside the description panel */}
+          <div className="flex gap-3 justify-center mt-6 pointer-events-auto">
+            <Button
+              asChild
+              className="rounded-xl px-5 py-2 text-sm font-medium"
+            >
+              <a href={site} target="_blank">
+                Visit Site
+              </a>
+            </Button>
+
+            <Button
+              variant="secondary"
+              asChild
+              className="rounded-xl px-5 py-2 text-sm font-medium"
+            >
+              <a href={github} target="_blank">
+                GitHub
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </div>
