@@ -23,7 +23,7 @@ export default function FeaturedProject({
       >
         {/* FIXED 16:9 VIDEO */}
         <CardContent className="relative p-0 aspect-video overflow-hidden">
-          <a href={site} target="_blank">
+          <a href={site} target="_blank" aria-label={`Visit ${title} website`}>
             <video
               src={video}
               autoPlay
@@ -36,6 +36,7 @@ export default function FeaturedProject({
                 group-hover:brightness-[0.25]
                 group-hover:scale-[1.12]
               "
+              title={`Preview of ${title}`}
             />
           </a>
 

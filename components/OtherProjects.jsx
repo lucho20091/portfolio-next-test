@@ -133,7 +133,11 @@ export default function OtherProjects() {
 
                         {/* GitHub */}
                         <TableCell className="col-span-1 text-center">
-                          <a href={projectMap.github} target="_blank">
+                          <a
+                            href={projectMap.github}
+                            target="_blank"
+                            aria-label={`View ${projectMap.projectName} on GitHub`}
+                          >
                             <Github
                               className="mx-auto hover:text-blue-400 transition"
                               size={22}
@@ -144,7 +148,11 @@ export default function OtherProjects() {
                         {/* Website */}
                         <TableCell className="col-span-1 text-center">
                           {projectMap.website && (
-                            <a href={projectMap.website} target="_blank">
+                            <a
+                              href={projectMap.website}
+                              target="_blank"
+                              aria-label={`Visit ${projectMap.projectName} website`}
+                            >
                               <CodeXml
                                 className="mx-auto hover:text-green-400 transition"
                                 size={22}
