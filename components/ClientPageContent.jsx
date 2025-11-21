@@ -2,19 +2,20 @@
 
 import dynamic from "next/dynamic";
 import MainHero from "@/components/MainHero";
+import LoadingSpinner from "@/components/LoadingSpinner"; // Import the new spinner component
 
 // Dynamically import client components for lazy loading
 const FeaturedProjects = dynamic(() => import("@/components/FeaturedProjects"), {
   ssr: false, // Ensure this component is not server-rendered
-  loading: () => <div className="text-center text-gray-400 py-28">Loading projects...</div>,
+  loading: () => <LoadingSpinner />, // Use the new spinner here
 });
 const OtherProjects = dynamic(() => import("@/components/OtherProjects"), {
   ssr: false,
-  loading: () => <div className="text-center text-gray-400 py-28">Loading other projects...</div>,
+  loading: () => <LoadingSpinner />, // Use the new spinner here
 });
 const Contact = dynamic(() => import("@/components/ContactForm"), {
   ssr: false,
-  loading: () => <div className="text-center text-gray-400 py-28">Loading contact form...</div>,
+  loading: () => <LoadingSpinner />, // Use the new spinner here
 });
 const GetInfo = dynamic(() => import("@/components/GetInfo"), {
   ssr: false,
