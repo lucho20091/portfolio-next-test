@@ -10,14 +10,16 @@ export default function FeaturedProject({
   github,
 }) {
   return (
-    <div className="group relative w-full">
+    <div className="group relative w-full" data-aos="fade-up">
       <Card
         className="
           overflow-hidden bg-white/10 backdrop-blur-xl
-          border border-white/20
+          border border-gray-700
           shadow-[0_8px_30px_rgba(0,0,0,0.25)]
-          rounded-2xl transition-all duration-500
+          rounded-2xl transition-all duration-500 ease-in-out
           group-hover:shadow-[0_15px_45px_rgba(0,0,0,0.5)]
+          group-hover:translate-y-[-5px]
+          group-hover:border-blue-500
           py-0
         "
       >
@@ -45,7 +47,7 @@ export default function FeaturedProject({
             className="
               absolute inset-0 pointer-events-none
               bg-gradient-to-t from-black/60 via-black/25 to-transparent
-              opacity-70 group-hover:opacity-90
+              opacity-50 group-hover:opacity-100
               transition-all duration-700
             "
           />
@@ -94,10 +96,14 @@ export default function FeaturedProject({
         <div
           className="
             w-[85%] max-w-xl mx-auto text-center text-white
-            bg-white/10 backdrop-blur-2xl
-            border border-white/20 px-5 py-6
+            bg-white/5 backdrop-blur-2xl
+            border border-gray-700 px-5 py-6
             lg:px-10 lg:py-12 rounded-2xl shadow-2xl
             space-y-6 pointer-events-none
+            transition-all duration-500
+            group-hover:bg-white/15
+            group-hover:border-blue-400
+            group-hover:scale-[0.98]
           "
         >
           <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
