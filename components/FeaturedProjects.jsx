@@ -39,7 +39,7 @@ export default function FeaturedProjects() {
             platforms, clean UI, and high-performance development.
           </p>
         </div>
-
+        <div className="grid md:grid-cols-2 md:gap-x-4 2xl:gap-x-0 gap-y-6 2xl:gap-y-28 2xl:grid-cols-1">
         {/* PROJECT 1 */}
         <FeaturedProject
           video="/video-small.webm"
@@ -70,7 +70,7 @@ export default function FeaturedProjects() {
           ]}
           site="https://ecommerce-techstore.vercel.app/"
           github="https://github.com/lucho20091/next-test-ec"
-        />
+        /></div>
       </div>
     </section>
   );

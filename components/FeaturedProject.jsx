@@ -53,7 +53,7 @@ export default function FeaturedProject({
           {/* BUTTONS that slide-in on hover */}
           <div
             className="
-              absolute bottom-5 right-5 flex md:hidden lg:flex gap-3 z-20
+              absolute bottom-5 right-5 flex lg:hidden 2xl:flex gap-3 z-20
               opacity-0 translate-y-3
               group-hover:opacity-100 group-hover:translate-y-0
               transition-all duration-500
@@ -84,7 +84,7 @@ export default function FeaturedProject({
       {/* DESCRIPTION PANEL */}
       <div
         className="
-          absolute inset-0 hidden md:flex items-center justify-center z-30
+          absolute inset-0 hidden lg:flex items-center justify-center z-30
           opacity-0 translate-y-3
           group-hover:opacity-100 group-hover:translate-y-0
           transition-all duration-500
@@ -95,9 +95,9 @@ export default function FeaturedProject({
           className="
             w-[85%] max-w-xl mx-auto text-center text-white
             bg-white/10 backdrop-blur-2xl
-            border border-white/20 px-5 py-6
-            lg:px-10 lg:py-12 rounded-2xl shadow-2xl
-            space-y-6 pointer-events-none
+            border border-white/20 px-4 py-4
+            xl:px-10 xl:py-12 rounded-2xl shadow-2xl
+            space-y-1 xl:space-y-6 pointer-events-none
           "
         >
           <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
