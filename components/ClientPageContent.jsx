@@ -2,20 +2,22 @@
 
 import dynamic from "next/dynamic";
 import MainHero from "@/components/MainHero";
-import LoadingSpinner from "@/components/LoadingSpinner"; // Import the new spinner component
+import FeaturedProjectsSkeleton from "@/components/FeaturedProjectsSkeleton";
+import OtherProjectsSkeleton from "@/components/OtherProjectsSkeleton";
+import ContactFormSkeleton from "@/components/ContactFormSkeleton";
 
 // Dynamically import client components for lazy loading
 const FeaturedProjects = dynamic(() => import("@/components/FeaturedProjects"), {
   ssr: false, // Ensure this component is not server-rendered
-  loading: () => <LoadingSpinner />, // Use the new spinner here
+  loading: () => <FeaturedProjectsSkeleton />, // Use the new skeleton here
 });
 const OtherProjects = dynamic(() => import("@/components/OtherProjects"), {
   ssr: false,
-  loading: () => <LoadingSpinner />, // Use the new spinner here
+  loading: () => <OtherProjectsSkeleton />, // Use the new skeleton here
 });
 const Contact = dynamic(() => import("@/components/ContactForm"), {
   ssr: false,
-  loading: () => <LoadingSpinner />, // Use the new spinner here
+  loading: () => <ContactFormSkeleton />, // Use the new skeleton here
 });
 const GetInfo = dynamic(() => import("@/components/GetInfo"), {
   ssr: false,
