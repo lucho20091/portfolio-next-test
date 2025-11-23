@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"; // Import Tabs
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export default function OtherProjectsSkeleton() {
@@ -15,11 +15,13 @@ export default function OtherProjectsSkeleton() {
         </div>
 
         {/* TABS LIST SKELETON */}
-        <TabsList className="w-full flex flex-wrap justify-start gap-2 bg-gray-900 p-2 h-auto border border-gray-700 animate-pulse">
-          {[...Array(5)].map((_, i) => (
-            <TabsTrigger key={i} value={`tab-${i}`} className="px-8 py-4 bg-gray-800 rounded-md"></TabsTrigger>
-          ))}
-        </TabsList>
+        <Tabs className="w-full relative"> {/* Added Tabs wrapper */}
+          <TabsList className="w-full flex flex-wrap justify-start gap-2 bg-gray-900 p-2 h-auto border border-gray-700 animate-pulse">
+            {[...Array(5)].map((_, i) => (
+              <TabsTrigger key={i} value={`tab-${i}`} className="px-8 py-4 bg-gray-800 rounded-md"></TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
 
         {/* TABLE SKELETON */}
         <div className="mt-6 md:mt-8 bg-gray-900 text-gray-300 p-4 rounded-xl shadow-lg border border-gray-700 animate-pulse">
