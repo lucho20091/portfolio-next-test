@@ -3,10 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "react-toastify";
 import { Button } from "./ui/button";
-import { submitContactForm } from "@/lib/actions/contact";
 
 export default function Contact() {
-  const [state, handleSubmitFormspree, resetFormspree] = useForm("xnnvzlyz"); // Destructure resetFormspree
+  const [state, handleSubmitFormspree, resetFormspree] = useForm("xnnvzlyz");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,22 +21,36 @@ export default function Contact() {
 
   useEffect(() => {
     if (state.succeeded && submittedFormDataRef.current) {
-      const callServerAction = async () => {
-        const serverActionResult = await submitContactForm(submittedFormDataRef.current);
-        if (serverActionResult.success) {
-          toast.success(serverActionResult.message);
-          setFormData({ name: "", email: "", message: "" }); // Clear form
-          submittedFormDataRef.current = null; // Reset the ref after successful server action
-          resetFormspree(); // Reset Formspree state to allow new submissions
-        } else {
-          toast.error(serverActionResult.message);
+      const callApiRoute = async () => {
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(submittedFormDataRef.current),
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            toast.success(result.message);
+            setFormData({ name: "", email: "", message: "" }); // Clear form
+            submittedFormDataRef.current = null; // Reset the ref after successful API call
+            resetFormspree(); // Reset Formspree state to allow new submissions
+          } else {
+            toast.error(result.message);
+          }
+        } catch (error) {
+          console.error("Failed to submit contact form via API route:", error);
+          toast.error("Failed to send message. Please try again.");
         }
       };
-      callServerAction();
+      callApiRoute();
     } else if (state.errors && state.errors.length > 0) {
       toast.error("Please correct the form errors.");
     }
-  }, [state.succeeded, state.errors, resetFormspree]); // Add resetFormspree to dependencies
+  }, [state.succeeded, state.errors, resetFormspree]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
