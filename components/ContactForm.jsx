@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "react-toastify";
 import { Button } from "./ui/button";
-import { sendMessageToTelegram } from "@/lib/actions/telegram";
-export default function Contact() {
-  const [state, handleSubmit] = useForm("xnnvzlyz");
+import { submitContactForm } from "@/lib/actions/contact"; // Import the new server action
 
+export default function Contact() {
+  const [state, handleSubmitFormspree] = useForm("xnnvzlyz"); // Keep Formspree for client-side validation/submission
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,13 +18,36 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  useEffect(() => {
-    if (state.succeeded) {
-      toast("Message sent successfully");
-      sendMessageToTelegram(formData);
-      setFormData({ name: "", email: "", message: "" });
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    // First, submit to Formspree for their validation and email sending
+    const formspreeResult = await handleSubmitFormspree(e);
+
+    if (formspreeResult.succeeded) {
+      // If Formspree succeeded, then call our server action for Telegram and rate limiting
+      const serverActionResult = await submitContactForm(formData);
+      if (serverActionResult.success) {
+        toast.success(serverActionResult.message);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error(serverActionResult.message);
+      }
+    } else if (formspreeResult.errors) {
+      // Formspree had errors, display them (ValidationError components will handle this)
+      toast.error("Please correct the form errors.");
     }
-  }, [state.succeeded]);
+  };
+
+  // Remove the useEffect that was sending to Telegram directly after Formspree success
+  // The Telegram message sending is now handled by submitContactForm
+  // useEffect(() => {
+  //   if (state.succeeded) {
+  //     toast("Message sent successfully");
+  //     sendMessageToTelegram(formData);
+  //     setFormData({ name: "", email: "", message: "" });
+  //   }
+  // }, [state.succeeded]);
 
   return (
     <section className="relative w-full pb-14 md:py-28 text-gray-50">
@@ -55,7 +78,7 @@ export default function Contact() {
 
         <form
           id="contact-form"
-          onSubmit={handleSubmit}
+          onSubmit={handleFormSubmit} // Use the new handler
           className="bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-3xl mx-auto  border border-gray-700"
         >
           <div className="space-y-6">
@@ -144,6 +167,8 @@ export default function Contact() {
             <Button
               variant="secondary"
               className="block  ml-auto cursor-pointer"
+              type="submit" // Ensure the button is of type submit
+              disabled={state.submitting} // Disable button while submitting
             >
               Send Message
             </Button>
