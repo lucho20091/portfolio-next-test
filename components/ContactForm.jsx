@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "react-toastify";
 import { Button } from "./ui/button";
-import { submitContactForm } from "@/lib/actions/contact"; // Import the new server action
+import { submitContactForm } from "@/lib/actions/contact";
 
 export default function Contact() {
-  const [state, handleSubmitFormspree] = useForm("xnnvzlyz"); // Keep Formspree for client-side validation/submission
+  const [state, handleSubmitFormspree] = useForm("xnnvzlyz");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,36 +18,29 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-
-    // First, submit to Formspree for their validation and email sending
-    const formspreeResult = await handleSubmitFormspree(e);
-
-    if (formspreeResult.succeeded) {
-      // If Formspree succeeded, then call our server action for Telegram and rate limiting
-      const serverActionResult = await submitContactForm(formData);
-      if (serverActionResult.success) {
-        toast.success(serverActionResult.message);
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        toast.error(serverActionResult.message);
-      }
-    } else if (formspreeResult.errors) {
-      // Formspree had errors, display them (ValidationError components will handle this)
+  useEffect(() => {
+    if (state.succeeded) {
+      // Formspree submission was successful, now call the server action
+      const callServerAction = async () => {
+        const serverActionResult = await submitContactForm(formData); // Use the current formData
+        if (serverActionResult.success) {
+          toast.success(serverActionResult.message);
+          setFormData({ name: "", email: "", message: "" }); // Clear form only on full success
+        } else {
+          toast.error(serverActionResult.message);
+        }
+      };
+      callServerAction();
+    } else if (state.errors && state.errors.length > 0) { // Check if there are actual errors
       toast.error("Please correct the form errors.");
     }
-  };
+  }, [state.succeeded, state.errors, formData]); // formData is a dependency because it's used in submitContactForm
 
-  // Remove the useEffect that was sending to Telegram directly after Formspree success
-  // The Telegram message sending is now handled by submitContactForm
-  // useEffect(() => {
-  //   if (state.succeeded) {
-  //     toast("Message sent successfully");
-  //     sendMessageToTelegram(formData);
-  //     setFormData({ name: "", email: "", message: "" });
-  //   }
-  // }, [state.succeeded]);
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    // Trigger Formspree submission. The useEffect will handle the server action and toasts.
+    await handleSubmitFormspree(e);
+  };
 
   return (
     <section className="relative w-full pb-14 md:py-28 text-gray-50">
