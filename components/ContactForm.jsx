@@ -1,19 +1,18 @@
 "use client";
-import { useState, useEffect, useRef } from "react"; // Import useRef
+import { useState, useEffect, useRef } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "react-toastify";
 import { Button } from "./ui/button";
 import { submitContactForm } from "@/lib/actions/contact";
 
 export default function Contact() {
-  const [state, handleSubmitFormspree] = useForm("xnnvzlyz");
+  const [state, handleSubmitFormspree, resetFormspree] = useForm("xnnvzlyz"); // Destructure resetFormspree
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  // Use a ref to store the formData at the moment of submission
   const submittedFormDataRef = useRef(null);
 
   const handleChange = (e) => {
@@ -23,13 +22,13 @@ export default function Contact() {
 
   useEffect(() => {
     if (state.succeeded && submittedFormDataRef.current) {
-      // Formspree submission was successful, now call the server action
       const callServerAction = async () => {
-        const serverActionResult = await submitContactForm(submittedFormDataRef.current); // Use the captured formData
+        const serverActionResult = await submitContactForm(submittedFormDataRef.current);
         if (serverActionResult.success) {
           toast.success(serverActionResult.message);
           setFormData({ name: "", email: "", message: "" }); // Clear form
           submittedFormDataRef.current = null; // Reset the ref after successful server action
+          resetFormspree(); // Reset Formspree state to allow new submissions
         } else {
           toast.error(serverActionResult.message);
         }
@@ -38,13 +37,11 @@ export default function Contact() {
     } else if (state.errors && state.errors.length > 0) {
       toast.error("Please correct the form errors.");
     }
-  }, [state.succeeded, state.errors]); // Removed formData from dependencies
+  }, [state.succeeded, state.errors, resetFormspree]); // Add resetFormspree to dependencies
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Capture current formData before Formspree submission
     submittedFormDataRef.current = { ...formData };
-    // Trigger Formspree submission. The useEffect will handle the server action and toasts.
     await handleSubmitFormspree(e);
   };
 
