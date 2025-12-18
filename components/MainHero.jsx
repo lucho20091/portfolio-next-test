@@ -1,8 +1,10 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import Whatsapp from "./Whatsapp";
 export default function MainHero() {
   return (
     <div className="relative min-h-[calc(100svh-72px)] flex flex-col items-center justify-center px-6 background-stars select-none">
+      <Whatsapp />
       <div id="start" className="absolute top-[-72px]"></div>
       {/* Hero Content */}
       <div
