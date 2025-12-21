@@ -68,10 +68,11 @@ export default function FeaturedProjects() {
             "Tailwind CSS",
             "PayPal REST API",
           ]}
-          site="https://ecommerce-techstore.vercel.app/"
+          site="https://github.com/lucho20091/next-test-ec"
           github="https://github.com/lucho20091/next-test-ec"
         /></div>
       </div>
     </section>
   );
 }
+
